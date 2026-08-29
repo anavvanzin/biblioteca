@@ -17,8 +17,9 @@ content/
     figuras/          # imagens citadas no texto (opcional)
     materiais/        # notas de apoio: fontes, revisão sistemática, matrizes, pendências (opcional)
   _modelo/           # esqueleto de referência para novos itens
+assets/              # styles.css e app.js — versionados, copiados para docs/assets/ a cada build
 scripts/
-  build.py           # gera docs/ a partir de content/
+  build.py           # gera docs/ a partir de content/ + assets/
   new_item.py        # cria o esqueleto de um novo item
 docs/                # saída gerada (ignorada no git — recriada pelo Action a cada push)
 ```

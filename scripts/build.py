@@ -19,7 +19,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content"
 DOCS = ROOT / "docs"
-ASSETS_SRC = DOCS / "assets"  # assets are hand-authored and live directly in docs/assets
+ASSETS_SRC = ROOT / "assets"  # CSS/JS são versionados aqui e copiados para docs/assets/ a cada build
 
 SITE_TITLE = "Biblioteca — Ana Vitória Vanzin Mendes"
 SITE_TAGLINE = (
@@ -454,8 +454,10 @@ def build_data_json(items):
 
 
 def main():
-    if (DOCS / "textos").exists():
-        shutil.rmtree(DOCS / "textos")
+    if DOCS.exists():
+        shutil.rmtree(DOCS)
+    DOCS.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(ASSETS_SRC, DOCS / "assets")
     items = load_items()
     items_by_slug = {i["slug"]: i for i in items}
     build_index(items)
