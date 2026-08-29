@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# docs/ é gerado por scripts/build.py e publicado pelo GitHub Action —
+# não precisa ser versionado.
+docs/

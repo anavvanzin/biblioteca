@@ -1,0 +1,21 @@
+title: "Título completo do texto"
+# title_en: "Título em inglês, se houver versão bilíngue"
+author: "Ana Vitória Vanzin Mendes"
+date: "2026-08-29"                 # ano ou AAAA-MM-DD
+lang: "pt-BR"                      # pt-BR | en-GB | es-ES ...
+status: "rascunho"                 # rascunho | em-revisao | pronto-para-submissao | versao-anterior
+status_label: "Rascunho"           # rótulo exibido no site (livre)
+tema: "Nome do tema/linha de pesquisa"
+# disciplina: "Código e nome da disciplina, se aplicável"
+keywords:
+  - "palavra-chave 1"
+  - "palavra-chave 2"
+resumo: >
+  Resumo em português (parágrafo único, pode quebrar linha no arquivo).
+# abstract: >
+#   English abstract, if the text has one.
+# note: >
+#   Nota editorial opcional (ex.: pendências, relação com outra versão).
+# supersedes: "slug-do-texto-anterior"
+# superseded_by: "slug-do-texto-mais-novo"
+# pendencias_file: "DECISOES-C1-C6.md"   # nome de um arquivo dentro de materiais/
