@@ -18,7 +18,10 @@ python3 -m http.server -d docs 8000      # pré-visualizar o site gerado
 ```
 
 Não há testes, lint nem typecheck. A verificação real é rodar `build.py` e abrir
-`docs/index.html`: o build falha alto em `meta.yaml` inválido ou ausente.
+`docs/index.html`. Atenção ao modo de falha: só YAML **malformado** derruba o
+build; um item sem `meta.yaml` ou sem `artigo.md` é **pulado em silêncio** por
+`load_items()` e simplesmente some do site. Confira a contagem
+"`Biblioteca gerada: N textos`" no fim do build antes de confiar no resultado.
 
 O deploy é automático — `.github/workflows/deploy.yml` roda `build.py` em Python
 3.12 e publica `docs/` no GitHub Pages a cada push em `main`. **Não versione
@@ -50,9 +53,10 @@ filtra os cards já presentes no DOM pelos atributos `data-tema`, `data-lang`,
 filtro normalmente exige tocar nos dois arquivos.
 
 **Vocabulários controlados vivem no topo do `build.py`**, não no YAML:
-`STATUS_ORDER` (que também define a ordenação da grade), `STATUS_LABEL_FALLBACK`
-e `LANG_LABEL`. Um `status` ou `lang` novo em algum `meta.yaml` precisa ser
-registrado ali, senão ordena e rotula errado.
+`STATUS_ORDER` (ordena os chips do filtro de status — a grade de cards é
+ordenada por data decrescente), `STATUS_LABEL_FALLBACK` e `LANG_LABEL`. Um
+`status` ou `lang` novo em algum `meta.yaml` precisa ser registrado ali, senão
+o chip ordena e rotula errado.
 
 ## Proveniência do conteúdo
 
